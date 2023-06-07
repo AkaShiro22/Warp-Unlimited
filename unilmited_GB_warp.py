@@ -1,6 +1,93 @@
-# Obfuscated by Py Compile
-# Created by AkaShiro (https://github.com/AkaShiro22)
-# Instagram : @t
+import json
 
-import zlib,base64
-exec(zlib.decompress(base64.b64decode("eJyNVFtv2zYUfi/Q/8AK6yQhjlwnBZpo8DDXdZygaZfG8rJgCwxaOrJZU6RKUkuMIPvtO9QtVrIO04NN8ty+850Ly3KpDPmqpXj54uULVl0TasCwDHae7JX0iIJvBWij7ZGKRGZ40EYxsdrRLRTnbGkfUoUa+TZlKw6G1OKT8taKFWViKW8N3LUa9tzKY8mlohltzaUqgSWQlhgWosiWoDw/tK8EPwWmUMLi8iqQgf1jwniD3vHxse93zCv4XuXl0UmJZ1gnF1AdM7ZA2AaUJnvNc8JWzOjHuLrgZkhcN/gqmWiCx2vJYvCsQ5+kUpF4TZiwwVfQhPWfYK9c2UcNWjMpEErDfTCrnrzSCMlGmbM2Jtdhv09zFsRcFknKqYKYMxAmiGXW/+sNfa37ClYOed3lrWHjlqp8UQjOMmYg8ViyiGUCj4wwoS0ju6QdHLTAlzLZovTe2cDWCYlz/zB0Asw2o8bbNXl76Pu9xsh+jvVLOV+wBO3spStO42xh5AZE5TUcXYyOB8v7h9Z7adKBNTh8+zSIghSUAmVDVIl15WXyIOiSg4VxQrl+osFlTDlYEKAX85nz0EhxWihmbmcoSIos157lwg9A2DCeW5j0yG15WgNNQFmm3LEUBsuzH21zcEPi0jznLKYGa9u33n7CTqFKgxnOo5P9I7eDx51rUPujFTqwtnJjO6B/GAwOgoG7q9jiNGob7gqwnxBGNaxB3VzBZfXv2bbqVan1asx+11jnz63xKnPAzodvrTbcxZA3SyHAIkgVnEbRxcSeOoDsjgk0B8i9wbtONHteUiFK4qr94aXI3tC5XbNMbx0fIQjEGOGQec4VFhP3xJ1TOsmxJwwp58+rnPi773afBJeTDzjVzh8/3JCxAlx/CXm/JaMNna2Zks4z/enlZPK5tVhbr5xEwGGFq4r8/TNp5tEEGfT3Zm++pIPDzfxoHJ2ml19+I3fkl+87Pz+bnkafRtPJ52i0mPxehvnxhpRZXfBCk3kzpGQWK4bkviLPvVxPzs9/vbLGw//zOT7BfsOGxTlEkpnIC1M5Gl+PqlT3bjA8UA1kgo2ryLUsFBmXK4acfSBhDQJLwoFEqoDwe633ZNXUYTslr1MhXbpnRRzj9sOEMTiZSkMG0/cVM3vkT+Hgb2lQs2dNashXlKHyOzKDWIqEvHKeNdh/t2Hdxh9hu5RUJWeWAVXkJvwX0FVLYXksYiPzHI+2RP8AxHspeg==")))
+import datetime
+
+import time , requests , random , string
+
+import urllib
+
+from pyfiglet import Figlet
+
+from rainbowtext import text
+
+from colorama import Fore
+
+def rand_number():
+
+    return str(random.randint(1,999))
+
+def rand_string(number):
+
+    text = string.ascii_letters + string.digits
+
+    result= ''.join(random.choice(text) for ch in range(number))
+
+    return result
+
+session = requests.Session()
+
+url = "https://api.cloudflareclient.com/v0a%s/reg" % rand_number()
+
+def warp_unlimited(id_code):
+
+    inst = rand_string(22)
+
+    body = {"key": "{}=".format(rand_string(43)),
+
+        "install_id": inst,
+
+        "fcm_token": "{}:APA91b{}".format(inst, rand_string(134)),
+
+        "referrer": id_code,
+
+        "warp_enabled": False,
+
+        "locale": "es_US"}
+
+    data = json.dumps(body).encode('utf8')
+
+    header = {'Content-Type': 'application/json; charset=UTF-8',
+
+        'User-Agent': 'okhttp/3.12.1'
+
+        }
+
+    try:
+
+        req = urllib.request.Request(url , data , header)
+
+        resp = urllib.request.urlopen(req)
+
+    except urllib.error.HTTPError:
+
+        time.sleep(17)
+
+        
+
+banner = Figlet(font="whimsy").renderText("Warp Fox")
+
+print (text(banner))
+
+print (Fore.RED + "[$] Created By AkaShiro")
+
+print (Fore.GREEN + "[$] Channel Telegram ~> https://t.me/+S0Qf13kU8CTHfRQV x @AkaShiro")
+
+print (Fore.LIGHTMAGENTA_EX + "[&] Warp Plus Unlimited Script ! ")
+
+print (Fore.YELLOW + "=====================================") ; code_id = input(Fore.CYAN + "[+] Please Enter Your Client ID : ")
+
+while True:
+
+    try:
+
+        warp_unlimited(code_id)
+
+        print ( Fore.GREEN + "Success ! You Got 1GB Warp + \n" + Fore.MAGENTA + "Please Wait 17 Second !")
+
+        
+
+        time.sleep(17)
+
+    except KeyboardInterrupt:
+
+        print (Fore.Red + "Stopped ! ")
