@@ -1,0 +1,9 @@
+urllib3
+
+requests
+
+rainbowtext
+
+pyfiglet
+
+colorama
